@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It's Nick | A little bit of everything</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for the single-page layout */
+        section {
+            scroll-margin-top: 80px;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .portfolio-item {
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            aspect-ratio: 1/1;
+        }
+        
+        .portfolio-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .portfolio-tab {
+            padding: 0.5rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-tab.active {
+            background: var(--mustard);
+            color: var(--dark-blue);
+        }
+        
+        .see-more-container {
+            margin-top: 2rem;
+            text-align: center;
+        }
+        
+        .model-card, .project-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .model-card:hover, .project-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 200, 87, 0.3);
+        }
+        
+        .model-image-placeholder, .project-image-placeholder {
+            height: 200px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+        }
+        
+        .model-content, .project-content {
+            padding: 1.5rem;
+        }
+        
+        .model-features {
+            margin-top: 1rem;
+        }
+        
+        .model-feature {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+            border-radius: 4px;
+        }
+        
+        .project-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--mustard);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .calendar-container {
+            margin-top: 2rem;
+            text-align: center;
+        }
+        
+        .calendar-embed {
+            width: 100%;
+            max-width: 800px;
+            height: 600px;
+            border: none;
+            border-radius: 12px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="#hero" class="logo">It's Nick<span class="accent">.</span></a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#photography">Photography</a></li>
+                    <li><a href="#models">Finetuned Models</a></li>
+                    <li><a href="#passions">Passions</a></li>
+                    <li><a href="#calendar">Book a Call</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle">Menu</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <div class="hero-flex">
+                <div class="title-group">
+                    <h1>It's Nick<span class="accent">.</span></h1>
+                    <div class="dynamic-text-container">
+                        <div class="dynamic-text">
+                            <div class="text-wrapper">
+                                <span class="static-text">...and I'm into</span>
+                                <span id="changing-text" class="accent">Photography</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://nick-f.imgix.net/images/nick-image.PNG?fm=webp&q=50" alt="Nick's headshot" class="profile-image">
+                </div>
+            </div>
+            
+            <!-- Quick Navigation -->
+            <div class="quick-nav">
+                <a href="#photography" class="quick-nav-item">
+                    <span class="icon">📸</span>
+                    <span>Photography</span>
+                </a>
+                <a href="#models" class="quick-nav-item">
+                    <span class="icon">🧠</span>
+                    <span>Models</span>
+                </a>
+                <a href="#passions" class="quick-nav-item">
+                    <span class="icon">❤️</span>
+                    <span>Passions</span>
+                </a>
+                <a href="#calendar" class="quick-nav-item">
+                    <span class="icon">🗓️</span>
+                    <span>Book a Call</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Decorative Elements -->
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+    </section>
+
+    <!-- Photography Section -->
+    <section id="photography" class="section">
+        <h2>Photography<span class="accent">.</span></h2>
+        <p class="section-description">
+            I specialize in photography that captures personality, connection, and authenticity.
+            From professional headshots to content creation for businesses, I help you tell your story visually.
+        </p>
+        
+        <div class="portfolio-tabs">
+            <div class="portfolio-tab active" data-filter="all">All</div>
+            <div class="portfolio-tab" data-filter="headshots">Headshots</div>
+            <div class="portfolio-tab" data-filter="dating">Dating</div>
+            <div class="portfolio-tab" data-filter="couples">Couples</div>
+        </div>
+        
+        <div class="portfolio-grid" id="portfolio-grid">
+            <!-- Initial 6 images -->
+            <div class="portfolio-item visible" data-category="headshots">
+                <img src="https://nick-f.imgix.net/images/new-headshots-9316.jpg?fm=webp&q=50" alt="Professional headshot">
+            </div>
+            <div class="portfolio-item visible" data-category="headshots">
+                <img src="https://nick-f.imgix.net/images/austin-hendrickson-4489.jpg?fm=webp&q=50" alt="Professional headshot">
+            </div>
+            <div class="portfolio-item visible" data-category="dating">
+                <img src="https://nick-f.imgix.net/images/soccershoot-33.jpg?fm=webp&q=50" alt="Dating profile photo">
+            </div>
+            <div class="portfolio-item visible" data-category="headshots">
+                <img src="https://nick-f.imgix.net/images/logan-tma-9575.jpg?fm=webp&q=50" alt="Professional headshot">
+            </div>
+            <div class="portfolio-item visible" data-category="couples">
+                <img src="https://nick-f.imgix.net/images/2020-02-01_09-36-12_000.jpeg?fm=webp&q=50" alt="Couples photo">
+            </div>
+            <div class="portfolio-item visible" data-category="dating">
+                <img src="https://nick-f.imgix.net/images/headshott-3151.jpg?fm=webp&q=50" alt="Dating profile photo">
+            </div>
+            
+            <!-- Hidden images (will be shown with "See More" button) -->
+            <div class="portfolio-item hidden" data-category="headshots">
+                <img src="https://nick-f.imgix.net/images/new-headshots-tma-8198.jpg?fm=webp&q=50" alt="Professional headshot">
+            </div>
+            <div class="portfolio-item hidden" data-category="headshots">
+                <img src="https://nick-f.imgix.net/images/rauhan-3747.jpg?fm=webp&q=50" alt="Professional headshot">
+            </div>
+            <div class="portfolio-item hidden" data-category="headshots">
+                <img src="https://nick-f.imgix.net/images/ben-1393.jpg?fm=webp&q=50" alt="Professional headshot">
+            </div>
+            <div class="portfolio-item hidden" data-category="headshots">
+                <img src="https://nick-f.imgix.net/images/aj-4314.jpg?fm=webp&q=50" alt="Professional headshot">
+            </div>
+            <div class="portfolio-item hidden" data-category="headshots">
+                <img src="https://nick-f.imgix.net/images/new-headshots-0310.jpg?fm=webp&q=50" alt="Professional headshot">
+            </div>
+            <div class="portfolio-item hidden" data-category="headshots">
+                <img src="https://nick-f.imgix.net/images/ryan-2170.jpg?fm=webp&q=50" alt="Professional headshot">
+            </div>
+        </div>
+        
+        <div class="see-more-container">
+            <button id="see-more-btn" class="cta-button">See More</button>
+        </div>
+    </section>
+
+    <!-- Models Section -->
+    <section id="models" class="section">
+        <h2>Finetuned Models<span class="accent">.</span></h2>
+        <p class="section-description">
+            Exploring the intersection of AI and creativity through custom-trained models.
+            From image generation to specialized applications, discover how I'm pushing the boundaries.
+        </p>
+        
+        <div class="models-grid cards">
+            <div class="model-card card">
+                <div class="model-image">
+                    <div class="model-image-placeholder"></div>
+                </div>
+                <div class="model-content">
+                    <h3>LoRA Training</h3>
+                    <p>Custom-trained Low-Rank Adaptation models for specialized image generation tasks.</p>
+                    <div class="model-features">
+                        <div class="model-feature">Fine-tuned on specific styles</div>
+                        <div class="model-feature">Optimized for quality outputs</div>
+                        <div class="model-feature">Efficient training methodology</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="model-card card">
+                <div class="model-image">
+                    <div class="model-image-placeholder"></div>
+                </div>
+                <div class="model-content">
+                    <h3>AI-Powered Headshots</h3>
+                    <p>Specialized models for generating professional headshots with consistent quality and style.</p>
+                    <div class="model-features">
+                        <div class="model-feature">Consistent lighting and composition</div>
+                        <div class="model-feature">Multiple style variations</div>
+                        <div class="model-feature">High-resolution outputs</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="model-card card">
+                <div class="model-image">
+                    <div class="model-image-placeholder"></div>
+                </div>
+                <div class="model-content">
+                    <h3>Custom Embeddings</h3>
+                    <p>Textual inversion embeddings for capturing specific concepts and styles in AI-generated images.</p>
+                    <div class="model-features">
+                        <div class="model-feature">Concept preservation</div>
+                        <div class="model-feature">Style consistency</div>
+                        <div class="model-feature">Flexible application</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2>Featured Projects<span class="accent">.</span></h2>
+        <p class="section-description">
+            Explore some of my recent AI projects and applications of finetuned models.
+        </p>
+        
+        <div class="projects-grid cards">
+            <div class="project-item card">
+                <div class="project-image">
+                    <div class="project-image-placeholder"></div>
+                </div>
+                <div class="project-content">
+                    <h3>Portrait Style Transfer</h3>
+                    <p>A specialized model for transferring artistic styles to portrait photography while maintaining likeness and quality.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </div>
+            
+            <div class="project-item card">
+                <div class="project-image">
+                    <div class="project-image-placeholder"></div>
+                </div>
+                <div class="project-content">
+                    <h3>Automated Background Generation</h3>
+                    <p>AI system for creating consistent, high-quality backgrounds for product photography and portraits.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </div>
+            
+            <div class="project-item card">
+                <div class="project-image">
+                    <div class="project-image-placeholder"></div>
+                </div>
+                <div class="project-content">
+                    <h3>Style-Consistent Content Generation</h3>
+                    <p>Framework for generating multiple content pieces with consistent visual style for branding and marketing.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Passions Section -->
+    <section id="passions" class="section">
+        <h2>Passions<span class="accent">.</span></h2>
+        <p class="section-description">
+            Beyond my professional work, I'm passionate about many things that keep me inspired and creative.
+        </p>
+        
+        <div class="passions-grid cards">
+            <div class="card">
+                <h3>Music</h3>
+                <p>Piano, guitar, and electronic music production. I love both classical pieces like Chopin and creating dance music.</p>
+            </div>
+            <div class="card">
+                <h3>Coffee</h3>
+                <p>Exploring different brewing methods and beans from around the world.</p>
+            </div>
+            <div class="card">
+                <h3>Welding</h3>
+                <p>Creating metal sculptures and functional pieces through welding and metalwork.</p>
+            </div>
+            <div class="card">
+                <h3>Cooking</h3>
+                <p>Experimenting with flavors and techniques, especially smoking meats and barbecue.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar Section -->
+    <section id="calendar" class="section">
+        <h2>Book a Call<span class="accent">.</span></h2>
+        <p class="section-description">
+            Interested in working together? Schedule a call to discuss your project or just to chat.
+        </p>
+        
+        <div class="calendar-container">
+            <iframe src="https://calendar.notion.so/meet/nickfriesen/meet-with-nick" class="calendar-embed"></iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <div class="footer-profile">
+                    <img src="https://nick-f.imgix.net/images/nick-image.PNG?fm=webp&q=50" alt="Nick's headshot" class="footer-image">
+                    <h3>It's Nick. A little bit of everything.</h3>
+                </div>
+            </div>
+            <div class="footer-right">
+                <a href="#calendar" class="cta-button">Book a Call</a>
+                <div class="social-links">
+                    <a href="#" class="social-link">Instagram</a>
+                    <a href="#" class="social-link">Twitter</a>
+                    <a href="#" class="social-link">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Array of interests to cycle through
+            const interests = [
+                'Photography.',
+                'AI.',
+                'Machine Learning.',
+                'Piano.',
+                'Guitar.',
+                'Dance Music.',
+                'Coffee.',
+                'GPUs.',
+                'interesting people.',
+                'smoking meat.',
+                'Welding.',
+                'Chopin.',
+                'Sparkling Water.',
+                'Jesus.',
+                'facial expressions.',
+                'the blues.',
+                'warmly lit spaces.'
+            ];
+
+            const changingText = document.getElementById('changing-text');
+            let lastIndex = -1;
+
+            // Function to get random index different from last one
+            function getRandomIndex() {
+                let newIndex;
+                do {
+                    newIndex = Math.floor(Math.random() * interests.length);
+                } while (newIndex === lastIndex && interests.length > 1);
+                lastIndex = newIndex;
+                return newIndex;
+            }
+
+            // Function to update text with fade effect
+            function updateText() {
+                changingText.style.opacity = '0';
+                
+                setTimeout(() => {
+                    const index = getRandomIndex();
+                    changingText.textContent = interests[index];
+                    changingText.style.opacity = '1';
+                }, 250); // Half of the interval for smooth transition
+            }
+
+            // Add transition style - faster for quicker words
+            changingText.style.transition = 'opacity 0.25s ease-in-out';
+
+            // Start the text rotation - 500ms interval
+            setInterval(updateText, 500);
+
+            // Add smooth scroll behavior for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Portfolio tabs functionality
+            const portfolioTabs = document.querySelectorAll('.portfolio-tab');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            const seeMoreBtn = document.getElementById('see-more-btn');
+            let showingAll = false;
+            
+            // Function to filter portfolio items
+            const filterPortfolio = (filterValue) => {
+                portfolioItems.forEach(item => {
+                    const isVisible = item.classList.contains('visible');
+                    const matchesFilter = filterValue === 'all' || item.getAttribute('data-category') === filterValue;
+                    
+                    if (showingAll) {
+                        // If showing all, just check if it matches the filter
+                        item.style.display = matchesFilter ? 'block' : 'none';
+                    } else {
+                        // If not showing all, check if it's visible AND matches the filter
+                        item.style.display = (isVisible && matchesFilter) ? 'block' : 'none';
+                    }
+                });
+            };
+            
+            // Tab click event
+            portfolioTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    portfolioTabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Get the filter value
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Filter the portfolio items
+                    filterPortfolio(filterValue);
+                });
+            });
+            
+            // See More button functionality
+            seeMoreBtn.addEventListener('click', function() {
+                if (!showingAll) {
+                    // Show all images
+                    document.querySelectorAll('.portfolio-item.hidden').forEach(item => {
+                        item.classList.remove('hidden');
+                        item.classList.add('visible');
+                    });
+                    this.textContent = 'Show Less';
+                    showingAll = true;
+                    
+                    // Apply current filter to all items
+                    const activeFilter = document.querySelector('.portfolio-tab.active').getAttribute('data-filter');
+                    filterPortfolio(activeFilter);
+                } else {
+                    // Hide extra images
+                    document.querySelectorAll('.portfolio-item').forEach((item, index) => {
+                        if (index >= 6) {
+                            item.classList.remove('visible');
+                            item.classList.add('hidden');
+                            item.style.display = 'none';
+                        }
+                    });
+                    this.textContent = 'See More';
+                    showingAll = false;
+                    
+                    // Apply current filter to visible items
+                    const activeFilter = document.querySelector('.portfolio-tab.active').getAttribute('data-filter');
+                    filterPortfolio(activeFilter);
+                }
+            });
+
+            // Add intersection observer for section animations
+            const sections = document.querySelectorAll('.section');
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                sectionObserver.observe(section);
+            });
+
+            // Mobile menu toggle
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const mainNav = document.querySelector('.main-nav');
+            
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', () => {
+                    mainNav.classList.toggle('active');
+                    mobileMenuToggle.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
