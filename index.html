@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>It's Nick | A little bit of everything</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/home.css">
@@ -17,8 +17,8 @@
         
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
             margin-top: 2rem;
         }
         
@@ -26,17 +26,23 @@
             border-radius: 12px;
             overflow: hidden;
             transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         .portfolio-item:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
-        
         .portfolio-item img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            aspect-ratio: 1/1;
+            height: auto;
+            display: block;
+            max-width: 100%;
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-item img:hover {
+            transform: scale(1.02);
         }
         
         .portfolio-tabs {
@@ -118,6 +124,7 @@
             border: none;
             border-radius: 12px;
             margin: 0 auto;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -154,7 +161,7 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="https://nick-f.imgix.net/images/nick-image.PNG?fm=webp&q=50" alt="Nick's headshot" class="profile-image">
+                    <img src="https://nick-f.imgix.net/images/nick-image.PNG?fm=webp&q=75&auto=format,compress&fit=max&w=400" alt="Nick's headshot" class="profile-image">
                 </div>
             </div>
             
@@ -206,42 +213,42 @@
         <div class="portfolio-grid" id="portfolio-grid">
             <!-- Initial 6 images -->
             <div class="portfolio-item visible" data-category="headshots">
-                <img src="https://nick-f.imgix.net/images/new-headshots-9316.jpg?fm=webp&q=50" alt="Professional headshot">
+                <img src="https://nick-f.imgix.net/images/new-headshots-9316.jpg?fm=webp&q=75&auto=format,compress&fit=max&w=1200" alt="Professional headshot">
             </div>
             <div class="portfolio-item visible" data-category="headshots">
-                <img src="https://nick-f.imgix.net/images/austin-hendrickson-4489.jpg?fm=webp&q=50" alt="Professional headshot">
+                <img src="https://nick-f.imgix.net/images/austin-hendrickson-4489.jpg?fm=webp&q=75&auto=format,compress&fit=max&w=1200" alt="Professional headshot">
             </div>
             <div class="portfolio-item visible" data-category="dating">
-                <img src="https://nick-f.imgix.net/images/soccershoot-33.jpg?fm=webp&q=50" alt="Dating profile photo">
+                <img src="https://nick-f.imgix.net/images/soccershoot-33.jpg?fm=webp&q=75&auto=format,compress&fit=max&w=1200" alt="Dating profile photo">
             </div>
             <div class="portfolio-item visible" data-category="headshots">
-                <img src="https://nick-f.imgix.net/images/logan-tma-9575.jpg?fm=webp&q=50" alt="Professional headshot">
+                <img src="https://nick-f.imgix.net/images/logan-tma-9575.jpg?fm=webp&q=75&auto=format,compress&fit=max&w=1200" alt="Professional headshot">
             </div>
             <div class="portfolio-item visible" data-category="couples">
-                <img src="https://nick-f.imgix.net/images/2020-02-01_09-36-12_000.jpeg?fm=webp&q=50" alt="Couples photo">
+                <img src="https://nick-f.imgix.net/images/2020-02-01_09-36-12_000.jpeg?fm=webp&q=75&auto=format,compress&fit=max&w=1200" alt="Couples photo">
             </div>
             <div class="portfolio-item visible" data-category="dating">
-                <img src="https://nick-f.imgix.net/images/headshott-3151.jpg?fm=webp&q=50" alt="Dating profile photo">
+                <img src="https://nick-f.imgix.net/images/headshott-3151.jpg?fm=webp&q=75&auto=format,compress&fit=max&w=1200" alt="Dating profile photo">
             </div>
             
             <!-- Hidden images (will be shown with "See More" button) -->
             <div class="portfolio-item hidden" data-category="headshots">
-                <img src="https://nick-f.imgix.net/images/new-headshots-tma-8198.jpg?fm=webp&q=50" alt="Professional headshot">
+                <img src="https://nick-f.imgix.net/images/new-headshots-tma-8198.jpg?fm=webp&q=75&auto=format,compress&fit=max&w=1200" alt="Professional headshot">
             </div>
             <div class="portfolio-item hidden" data-category="headshots">
-                <img src="https://nick-f.imgix.net/images/rauhan-3747.jpg?fm=webp&q=50" alt="Professional headshot">
+                <img src="https://nick-f.imgix.net/images/rauhan-3747.jpg?fm=webp&q=75&auto=format,compress&fit=max&w=1200" alt="Professional headshot">
             </div>
             <div class="portfolio-item hidden" data-category="headshots">
-                <img src="https://nick-f.imgix.net/images/ben-1393.jpg?fm=webp&q=50" alt="Professional headshot">
+                <img src="https://nick-f.imgix.net/images/ben-1393.jpg?fm=webp&q=75&auto=format,compress&fit=max&w=1200" alt="Professional headshot">
             </div>
             <div class="portfolio-item hidden" data-category="headshots">
-                <img src="https://nick-f.imgix.net/images/aj-4314.jpg?fm=webp&q=50" alt="Professional headshot">
+                <img src="https://nick-f.imgix.net/images/aj-4314.jpg?fm=webp&q=75&auto=format,compress&fit=max&w=1200" alt="Professional headshot">
             </div>
             <div class="portfolio-item hidden" data-category="headshots">
-                <img src="https://nick-f.imgix.net/images/new-headshots-0310.jpg?fm=webp&q=50" alt="Professional headshot">
+                <img src="https://nick-f.imgix.net/images/new-headshots-0310.jpg?fm=webp&q=75&auto=format,compress&fit=max&w=1200" alt="Professional headshot">
             </div>
             <div class="portfolio-item hidden" data-category="headshots">
-                <img src="https://nick-f.imgix.net/images/ryan-2170.jpg?fm=webp&q=50" alt="Professional headshot">
+                <img src="https://nick-f.imgix.net/images/ryan-2170.jpg?fm=webp&q=75&auto=format,compress&fit=max&w=1200" alt="Professional headshot">
             </div>
         </div>
         
@@ -351,7 +358,7 @@
         <div class="footer-content">
             <div class="footer-left">
                 <div class="footer-profile">
-                    <img src="https://nick-f.imgix.net/images/nick-image.PNG?fm=webp&q=50" alt="Nick's headshot" class="footer-image">
+                    <img src="https://nick-f.imgix.net/images/nick-image.PNG?fm=webp&q=75&auto=format,compress&fit=max&w=120" alt="Nick's headshot" class="footer-image">
                     <h3>It's Nick. A little bit of everything.</h3>
                 </div>
             </div>

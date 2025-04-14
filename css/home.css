@@ -291,6 +291,8 @@
 @media (max-width: 768px) {
     .hero-content {
         padding-top: 15vh;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
     .hero-flex {
@@ -324,19 +326,33 @@
     .dynamic-text-container {
         transform: translateX(0);
         padding-top: 0;
+        height: auto;
+        min-height: 3rem;
     }
 
     .dynamic-text {
         font-size: 1.8rem;
+        height: auto;
+        min-height: 3rem;
     }
 
     #changing-text {
-        min-width: 200px;
+        min-width: 0;
+        display: block;
+        margin-left: 0;
+        margin-top: 0.5rem;
+    }
+
+    .text-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
     }
 
     .quick-nav {
         flex-wrap: wrap;
         gap: 1rem;
+        justify-content: center;
     }
 
     .quick-nav-item {
@@ -347,5 +363,42 @@
 
     .quick-nav-item .icon {
         font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content {
+        padding-top: 10vh;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    
+    .title-group h1 {
+        font-size: 2.8rem;
+    }
+    
+    .dynamic-text {
+        font-size: 1.5rem;
+    }
+    
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .quick-nav {
+        gap: 0.5rem;
+    }
+    
+    .quick-nav-item {
+        width: 70px;
+        height: 70px;
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .quick-nav-item .icon {
+        font-size: 1.3rem;
+        margin-bottom: 0.2rem;
     }
 }
