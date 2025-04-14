@@ -470,12 +470,23 @@ footer::before {
     }
 
     .portfolio-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+        display: block;
+        padding: 0 1rem;
     }
 
     .portfolio-item {
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
+        height: auto;
+        display: block;
+        width: 100%;
+    }
+    
+    .portfolio-item img {
+        width: 100%;
+        height: auto;
+        max-height: none;
+        object-fit: contain;
+        display: block;
     }
 
     .portfolio-tabs {
@@ -516,6 +527,49 @@ footer::before {
     
     .calendar-embed {
         height: 500px;
+    }
+}
+
+/* Portrait mode specific styles */
+@media screen and (orientation: portrait) {
+    .portfolio-grid {
+        display: block;
+        padding: 0 0.5rem;
+    }
+    
+    .portfolio-item {
+        margin-bottom: 1.5rem;
+        height: auto;
+        width: 100%;
+        display: block;
+    }
+    
+    .portfolio-item img {
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        max-width: 100% !important;
+        object-fit: contain !important;
+        min-height: 0 !important;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .portfolio-grid {
+        display: block;
+    }
+    
+    .portfolio-item {
+        margin-bottom: 1.5rem;
+        height: auto;
+        width: 100%;
+    }
+    
+    .portfolio-item img {
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
     }
 }
 
