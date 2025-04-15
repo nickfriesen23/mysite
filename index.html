@@ -28,7 +28,22 @@
         
         @media screen and (max-width: 768px) {
             .portfolio-images {
-                display: block;
+                display: block !important;
+                width: 100% !important;
+            }
+            
+            .portfolio-item {
+                display: block !important;
+                width: 100% !important;
+                margin-bottom: 20px !important;
+            }
+            
+            .portfolio-item img {
+                width: 100% !important;
+                height: auto !important;
+                display: block !important;
+                max-width: 100% !important;
+                border-radius: 12px !important;
             }
         }
         
@@ -192,7 +207,7 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="https://nick-f.imgix.net/images/nick-image.PNG?fm=webp&q=75&auto=format,compress&fit=max&w=400" alt="Nick's headshot" class="profile-image">
+                    <img src="https://nick-f.imgix.net/images/nick-image.PNG" alt="Nick's headshot" class="profile-image" loading="eager">
                 </div>
             </div>
             
@@ -230,66 +245,63 @@
             From professional headshots to content creation for businesses, I help you tell your story visually.
         </p>
         
-        <div class="portfolio-tabs">
-            <div class="portfolio-tab active" data-filter="all">All</div>
-            <div class="portfolio-tab" data-filter="headshots">Headshots</div>
-            <div class="portfolio-tab" data-filter="dating">Dating</div>
-            <div class="portfolio-tab" data-filter="couples">Couples</div>
+        <!-- Single Photos button that toggles photo visibility -->
+        <div style="text-align: center; margin-bottom: 30px;">
+            <button id="toggle-photos-btn" class="cta-button">Show Photos</button>
         </div>
         
-        <!-- Direct link for mobile users -->
-        <div style="text-align: center; margin-bottom: 20px;">
-            <a href="#photo-images" style="color: var(--mustard); text-decoration: underline;">View Photos</a>
-        </div>
+        <!-- No direct link needed anymore since we have the button -->
         
-        <div id="photo-images" class="portfolio-container">
+        <div id="photo-images" class="portfolio-container" style="display: none;">
             <!-- Simple direct image approach for better mobile compatibility -->
-            <div class="portfolio-images" id="portfolio-grid">
-                <!-- Initial 6 images -->
+            <div class="portfolio-images" id="portfolio-grid" style="width: 100%;">
+                <!-- Add preload links for critical images -->
+                <link rel="preload" href="https://nick-f.imgix.net/images/new-headshots-9316.jpg?auto=format&w=1200" as="image">
+                <link rel="preload" href="https://nick-f.imgix.net/images/austin-hendrickson-4489.jpg?auto=format&w=1200" as="image">
+                <link rel="preload" href="https://nick-f.imgix.net/images/soccershoot-33.jpg?auto=format&w=1200" as="image">
+                <!-- Initial 6 images with direct URLs -->
                 <div class="portfolio-item visible" data-category="headshots">
-                    <img src="https://nick-f.imgix.net/images/new-headshots-9316.jpg?fm=webp&q=75&auto=format,compress&fit=max&w=1200&dpr=2" alt="Professional headshot" style="width:100%; height:auto; margin-bottom:20px; display:block; border-radius:12px;">
+                    <img src="https://nick-f.imgix.net/images/new-headshots-9316.jpg" alt="Professional headshot" style="width:100%; height:auto; margin-bottom:20px; display:block; border-radius:12px;" loading="lazy">
                 </div>
                 <div class="portfolio-item visible" data-category="headshots">
-                    <img src="https://nick-f.imgix.net/images/austin-hendrickson-4489.jpg?fm=webp&q=75&auto=format,compress&fit=max&w=1200&dpr=2" alt="Professional headshot" style="width:100%; height:auto; margin-bottom:20px; display:block; border-radius:12px;">
+                    <img src="https://nick-f.imgix.net/images/austin-hendrickson-4489.jpg" alt="Professional headshot" style="width:100%; height:auto; margin-bottom:20px; display:block; border-radius:12px;" loading="lazy">
                 </div>
                 <div class="portfolio-item visible" data-category="dating">
-                    <img src="https://nick-f.imgix.net/images/soccershoot-33.jpg?fm=webp&q=75&auto=format,compress&fit=max&w=1200&dpr=2" alt="Dating profile photo" style="width:100%; height:auto; margin-bottom:20px; display:block; border-radius:12px;">
+                    <img src="https://nick-f.imgix.net/images/soccershoot-33.jpg" alt="Dating profile photo" style="width:100%; height:auto; margin-bottom:20px; display:block; border-radius:12px;" loading="lazy">
                 </div>
                 <div class="portfolio-item visible" data-category="headshots">
-                    <img src="https://nick-f.imgix.net/images/logan-tma-9575.jpg?fm=webp&q=75&auto=format,compress&fit=max&w=1200&dpr=2" alt="Professional headshot" style="width:100%; height:auto; margin-bottom:20px; display:block; border-radius:12px;">
+                    <img src="https://nick-f.imgix.net/images/logan-tma-9575.jpg" alt="Professional headshot" style="width:100%; height:auto; margin-bottom:20px; display:block; border-radius:12px;" loading="lazy">
                 </div>
                 <div class="portfolio-item visible" data-category="couples">
-                    <img src="https://nick-f.imgix.net/images/2020-02-01_09-36-12_000.jpeg?fm=webp&q=75&auto=format,compress&fit=max&w=1200&dpr=2" alt="Couples photo" style="width:100%; height:auto; margin-bottom:20px; display:block; border-radius:12px;">
+                    <img src="https://nick-f.imgix.net/images/2020-02-01_09-36-12_000.jpeg" alt="Couples photo" style="width:100%; height:auto; margin-bottom:20px; display:block; border-radius:12px;" loading="lazy">
                 </div>
                 <div class="portfolio-item visible" data-category="dating">
-                    <img src="https://nick-f.imgix.net/images/headshott-3151.jpg?fm=webp&q=75&auto=format,compress&fit=max&w=1200&dpr=2" alt="Dating profile photo" style="width:100%; height:auto; margin-bottom:20px; display:block; border-radius:12px;">
+                    <img src="https://nick-f.imgix.net/images/headshott-3151.jpg" alt="Dating profile photo" style="width:100%; height:auto; margin-bottom:20px; display:block; border-radius:12px;" loading="lazy">
                 </div>
                 
                 <!-- Hidden images (will be shown with "See More" button) -->
                 <div class="portfolio-item hidden" data-category="headshots">
-                    <img src="https://nick-f.imgix.net/images/new-headshots-tma-8198.jpg?fm=webp&q=75&auto=format,compress&fit=max&w=1200&dpr=2" alt="Professional headshot" style="width:100%; height:auto; margin-bottom:20px; display:block; border-radius:12px;">
+                    <img src="https://nick-f.imgix.net/images/new-headshots-tma-8198.jpg" alt="Professional headshot" style="width:100%; height:auto; margin-bottom:20px; display:block; border-radius:12px;" loading="lazy">
                 </div>
                 <div class="portfolio-item hidden" data-category="headshots">
-                    <img src="https://nick-f.imgix.net/images/rauhan-3747.jpg?fm=webp&q=75&auto=format,compress&fit=max&w=1200&dpr=2" alt="Professional headshot" style="width:100%; height:auto; margin-bottom:20px; display:block; border-radius:12px;">
+                    <img src="https://nick-f.imgix.net/images/rauhan-3747.jpg" alt="Professional headshot" style="width:100%; height:auto; margin-bottom:20px; display:block; border-radius:12px;" loading="lazy">
                 </div>
                 <div class="portfolio-item hidden" data-category="headshots">
-                    <img src="https://nick-f.imgix.net/images/ben-1393.jpg?fm=webp&q=75&auto=format,compress&fit=max&w=1200&dpr=2" alt="Professional headshot" style="width:100%; height:auto; margin-bottom:20px; display:block; border-radius:12px;">
+                    <img src="https://nick-f.imgix.net/images/ben-1393.jpg" alt="Professional headshot" style="width:100%; height:auto; margin-bottom:20px; display:block; border-radius:12px;" loading="lazy">
                 </div>
                 <div class="portfolio-item hidden" data-category="headshots">
-                    <img src="https://nick-f.imgix.net/images/aj-4314.jpg?fm=webp&q=75&auto=format,compress&fit=max&w=1200&dpr=2" alt="Professional headshot" style="width:100%; height:auto; margin-bottom:20px; display:block; border-radius:12px;">
+                    <img src="https://nick-f.imgix.net/images/aj-4314.jpg" alt="Professional headshot" style="width:100%; height:auto; margin-bottom:20px; display:block; border-radius:12px;" loading="lazy">
                 </div>
                 <div class="portfolio-item hidden" data-category="headshots">
-                    <img src="https://nick-f.imgix.net/images/new-headshots-0310.jpg?fm=webp&q=75&auto=format,compress&fit=max&w=1200&dpr=2" alt="Professional headshot" style="width:100%; height:auto; margin-bottom:20px; display:block; border-radius:12px;">
+                    <img src="https://nick-f.imgix.net/images/new-headshots-0310.jpg" alt="Professional headshot" style="width:100%; height:auto; margin-bottom:20px; display:block; border-radius:12px;" loading="lazy">
                 </div>
                 <div class="portfolio-item hidden" data-category="headshots">
-                    <img src="https://nick-f.imgix.net/images/ryan-2170.jpg?fm=webp&q=75&auto=format,compress&fit=max&w=1200&dpr=2" alt="Professional headshot" style="width:100%; height:auto; margin-bottom:20px; display:block; border-radius:12px;">
+                    <img src="https://nick-f.imgix.net/images/ryan-2170.jpg" alt="Professional headshot" style="width:100%; height:auto; margin-bottom:20px; display:block; border-radius:12px;" loading="lazy">
                 </div>
             </div>
         </div>
         
-        <div class="see-more-container">
-            <button id="see-more-btn" class="cta-button">See More</button>
-        </div>
+        <!-- Removed See More button since all photos will be shown/hidden together -->
     </section>
 
 
@@ -337,7 +349,7 @@
         <div class="footer-content">
             <div class="footer-left">
                 <div class="footer-profile">
-                    <img src="https://nick-f.imgix.net/images/nick-image.PNG?fm=webp&q=75&auto=format,compress&fit=max&w=120" alt="Nick's headshot" class="footer-image">
+                    <img src="https://nick-f.imgix.net/images/nick-image.PNG" alt="Nick's headshot" class="footer-image" loading="lazy">
                     <h3>It's Nick. A little bit of everything.</h3>
                 </div>
             </div>
@@ -352,7 +364,177 @@
     </footer>
 
     <script>
+        // Function to handle image loading errors and provide fallbacks
+        function setupImageErrorHandling() {
+            document.querySelectorAll('img').forEach(img => {
+                if (!img.hasAttribute('data-error-handled')) {
+                    img.setAttribute('data-error-handled', 'true');
+                    
+                    // Store original src for potential recovery
+                    const originalSrc = img.src;
+                    
+                    // Create a special mobile-friendly URL
+                    let mobileFriendlyUrl = originalSrc;
+                    if (originalSrc.includes('imgix.net')) {
+                        // If URL already has parameters
+                        if (originalSrc.includes('?')) {
+                            // Replace all parameters with simple ones
+                            mobileFriendlyUrl = originalSrc.split('?')[0] + '?auto=format&w=800';
+                        } else {
+                            // Add simple parameters
+                            mobileFriendlyUrl = originalSrc + '?auto=format&w=800';
+                        }
+                    }
+                    
+                    // For mobile devices, use the mobile-friendly URL immediately
+                    if ((window.innerWidth <= 768 || window.matchMedia("(orientation: portrait)").matches) &&
+                        originalSrc.includes('imgix.net')) {
+                        img.src = mobileFriendlyUrl;
+                    }
+                    
+                    // Set up error handling
+                    img.onerror = function() {
+                        console.log("Error loading image:", this.src);
+                        
+                        // First try: use mobile-friendly URL if not already using it
+                        if (this.src !== mobileFriendlyUrl && this.src.includes('imgix.net')) {
+                            console.log("Trying mobile-friendly URL:", mobileFriendlyUrl);
+                            this.src = mobileFriendlyUrl;
+                            return;
+                        }
+                        
+                        // Second try: remove all URL parameters
+                        if (this.src.includes('?')) {
+                            const baseSrc = this.src.split('?')[0];
+                            console.log("Trying without parameters:", baseSrc);
+                            this.src = baseSrc;
+                            return;
+                        }
+                        
+                        // Third try: use a direct image URL with minimal parameters
+                        if (this.src.includes('imgix.net')) {
+                            console.log("Trying with minimal parameters");
+                            this.src = this.src + '?auto=format';
+                            
+                            // If that fails, we'll try a different approach
+                            this.onerror = function() {
+                                console.log("All attempts failed for:", originalSrc);
+                                // At this point, we've tried everything - could add a placeholder image
+                            };
+                        }
+                    };
+                }
+            });
+        }
+        
+        // Run image error handling setup immediately
+        setupImageErrorHandling();
+        
+        // Function to preload critical images
+        function preloadCriticalImages() {
+            // Use direct URLs without parameters
+            const criticalImageUrls = [
+                'https://nick-f.imgix.net/images/nick-image.PNG',
+                'https://nick-f.imgix.net/images/new-headshots-9316.jpg',
+                'https://nick-f.imgix.net/images/austin-hendrickson-4489.jpg'
+            ];
+            
+            // Also preload the base URLs without parameters as fallbacks
+            const fallbackUrls = [
+                'https://nick-f.imgix.net/images/nick-image.PNG',
+                'https://nick-f.imgix.net/images/new-headshots-9316.jpg',
+                'https://nick-f.imgix.net/images/austin-hendrickson-4489.jpg'
+            ];
+            
+            // Preload all URLs
+            [...criticalImageUrls, ...fallbackUrls].forEach(url => {
+                const img = new Image();
+                img.src = url;
+                
+                // Add error handling
+                img.onerror = function() {
+                    console.log("Error preloading image:", this.src);
+                    // If URL has parameters, try without them
+                    if (this.src.includes('?')) {
+                        this.src = this.src.split('?')[0];
+                    }
+                };
+            });
+        }
+        
+        // Preload critical images immediately
+        preloadCriticalImages();
+        
         document.addEventListener('DOMContentLoaded', () => {
+            // Force photos to be visible on mobile
+            // Enhanced mobile detection and image handling
+            if (window.innerWidth <= 768 || window.matchMedia("(orientation: portrait)").matches) {
+                console.log("Mobile device detected, ensuring photos are visible");
+                
+                // Function to ensure images are properly loaded
+                const ensureImagesLoaded = () => {
+                    document.querySelectorAll('.portfolio-item.visible').forEach(item => {
+                        item.style.display = 'block';
+                        const img = item.querySelector('img');
+                        if (img) {
+                            // Force image to be visible and properly sized
+                            img.style.width = '100%';
+                            img.style.height = 'auto';
+                            img.style.display = 'block';
+                            img.style.maxWidth = '100%';
+                            img.style.marginBottom = '20px';
+                            img.style.borderRadius = '12px';
+                            
+                            // Add enhanced error handling for images
+                            if (!img.hasAttribute('data-mobile-handled')) {
+                                img.setAttribute('data-mobile-handled', 'true');
+                                
+                                // Store original src
+                                const originalSrc = img.src;
+                                
+                                // Check if image is already loaded
+                                if (img.complete && img.naturalWidth === 0) {
+                                    console.log("Image failed to load, trying fallback:", img.src);
+                                    
+                                    // Try with simpler parameters
+                                    if (img.src.includes('?')) {
+                                        const baseSrc = img.src.split('?')[0];
+                                        img.src = baseSrc + '?auto=format';
+                                        
+                                        // If that fails, try without parameters
+                                        img.onerror = function() {
+                                            console.log("Still failed, trying without parameters");
+                                            this.src = baseSrc;
+                                            
+                                            // Final fallback - force reload
+                                            this.onerror = function() {
+                                                console.log("Final attempt - force reload");
+                                                setTimeout(() => {
+                                                    this.src = originalSrc;
+                                                }, 500);
+                                            };
+                                        };
+                                    }
+                                }
+                            }
+                        }
+                    });
+                    
+                    // Make sure portfolio grid is visible
+                    const portfolioGrid = document.getElementById('portfolio-grid');
+                    if (portfolioGrid) {
+                        portfolioGrid.style.display = 'block';
+                        portfolioGrid.style.width = '100%';
+                    }
+                };
+                
+                // Run immediately and after delays to ensure images load
+                ensureImagesLoaded();
+                setTimeout(ensureImagesLoaded, 500);
+                setTimeout(ensureImagesLoaded, 1500);
+                setTimeout(ensureImagesLoaded, 3000);
+            }
+            
             // Array of interests to cycle through
             const interests = [
                 'Photography.',
@@ -406,6 +588,7 @@
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
+                    console.log("Clicked link to:", targetId);
                     const target = document.querySelector(targetId);
                     
                     if (target) {
@@ -414,6 +597,43 @@
                             // Simple scroll with a slight delay to ensure elements are rendered
                             setTimeout(() => {
                                 window.scrollTo(0, target.offsetTop - 70);
+                                
+                                // If this is a link to the photo section, ensure photos are visible
+                                if (targetId === '#photography' || targetId === '#photo-images') {
+                                    console.log("Scrolled to photo section, ensuring photos are visible");
+                                    
+                                    // Force display of portfolio items with enhanced error handling
+                                    document.querySelectorAll('.portfolio-item.visible').forEach(item => {
+                                        item.style.display = 'block';
+                                        const img = item.querySelector('img');
+                                        if (img) {
+                                            img.style.width = '100%';
+                                            img.style.height = 'auto';
+                                            img.style.display = 'block';
+                                            img.style.maxWidth = '100%';
+                                            img.style.marginBottom = '20px';
+                                            
+                                            // Add error handling for images
+                                            if (!img.hasAttribute('data-error-handled')) {
+                                                img.setAttribute('data-error-handled', 'true');
+                                                img.onerror = function() {
+                                                    console.log("Error loading image:", this.src);
+                                                    // Try loading without parameters as fallback
+                                                    if (this.src.includes('?')) {
+                                                        this.src = this.src.split('?')[0];
+                                                    }
+                                                };
+                                            }
+                                            
+                                            // Force image reload if needed
+                                            if (img.complete && (img.naturalWidth === 0 || img.naturalHeight === 0)) {
+                                                const currentSrc = img.src;
+                                                img.src = '';
+                                                setTimeout(() => { img.src = currentSrc; }, 10);
+                                            }
+                                        }
+                                    });
+                                }
                             }, 100);
                         } else {
                             // Smooth scroll for desktop
@@ -426,118 +646,87 @@
                 });
             });
 
-            // Portfolio tabs functionality
-            const portfolioTabs = document.querySelectorAll('.portfolio-tab');
+            // Photos toggle button functionality
+            const togglePhotosBtn = document.getElementById('toggle-photos-btn');
+            const photoContainer = document.getElementById('photo-images');
             const portfolioItems = document.querySelectorAll('.portfolio-item');
-            const seeMoreBtn = document.getElementById('see-more-btn');
-            let showingAll = false;
             
-            // Function to filter portfolio items
-            const filterPortfolio = (filterValue) => {
-                portfolioItems.forEach(item => {
-                    const isVisible = item.classList.contains('visible');
-                    const matchesFilter = filterValue === 'all' || item.getAttribute('data-category') === filterValue;
-                    
-                    // Force images to be visible in portrait mode
-                    const isPortrait = window.matchMedia("(orientation: portrait)").matches;
-                    
-                    if (isPortrait) {
-                        // In portrait mode, ensure images are displayed if they match the filter
-                        if (matchesFilter) {
-                            item.style.display = 'block';
-                            const img = item.querySelector('img');
-                            if (img) {
-                                img.style.width = '100%';
-                                img.style.height = 'auto';
-                                img.style.display = 'block';
-                            }
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    } else {
-                        // Normal behavior for non-portrait mode
-                        if (showingAll) {
-                            // If showing all, just check if it matches the filter
-                            item.style.display = matchesFilter ? 'block' : 'none';
-                        } else {
-                            // If not showing all, check if it's visible AND matches the filter
-                            item.style.display = (isVisible && matchesFilter) ? 'block' : 'none';
-                        }
-                    }
-                });
-            };
+            // Initially hide all photos
+            photoContainer.style.display = 'none';
             
-            // Check orientation on load and resize
-            window.addEventListener('load', () => {
-                const isPortrait = window.matchMedia("(orientation: portrait)").matches;
-                if (isPortrait) {
-                    // Force all portfolio items to display properly in portrait mode
+            // Toggle photos visibility when button is clicked
+            togglePhotosBtn.addEventListener('click', function() {
+                const isVisible = photoContainer.style.display !== 'none';
+                
+                if (isVisible) {
+                    // Hide photos
+                    photoContainer.style.display = 'none';
+                    this.textContent = 'Show Photos';
+                } else {
+                    // Show photos
+                    photoContainer.style.display = 'block';
+                    this.textContent = 'Hide Photos';
+                    
+                    // Make sure all portfolio items are visible
                     portfolioItems.forEach(item => {
+                        item.style.display = 'block';
+                        item.classList.remove('hidden');
+                        item.classList.add('visible');
+                        
+                        // Ensure images are properly styled
                         const img = item.querySelector('img');
                         if (img) {
                             img.style.width = '100%';
                             img.style.height = 'auto';
                             img.style.display = 'block';
+                            img.style.maxWidth = '100%';
+                            img.style.marginBottom = '20px';
+                            img.style.borderRadius = '12px';
+                            
+                            // Add error handling for images
+                            if (!img.hasAttribute('data-error-handled')) {
+                                img.setAttribute('data-error-handled', 'true');
+                                img.onerror = function() {
+                                    console.log("Error loading image:", this.src);
+                                    // Try loading without parameters as fallback
+                                    if (this.src.includes('?')) {
+                                        this.src = this.src.split('?')[0];
+                                    }
+                                };
+                            }
                         }
                     });
+                    
+                    // Scroll to the photos section
+                    photoContainer.scrollIntoView({behavior: 'smooth'});
                 }
             });
             
-            // Listen for orientation changes
-            window.addEventListener('orientationchange', () => {
-                setTimeout(() => {
-                    const activeFilter = document.querySelector('.portfolio-tab.active').getAttribute('data-filter');
-                    filterPortfolio(activeFilter);
-                }, 100);
-            });
+            // Run the enhanced image error handling setup
+            setupImageErrorHandling();
             
-            // Tab click event
-            portfolioTabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    // Remove active class from all tabs
-                    portfolioTabs.forEach(t => t.classList.remove('active'));
-                    
-                    // Add active class to clicked tab
-                    this.classList.add('active');
-                    
-                    // Get the filter value
-                    const filterValue = this.getAttribute('data-filter');
-                    
-                    // Filter the portfolio items
-                    filterPortfolio(filterValue);
+            // Add a mutation observer to handle dynamically added images
+            const observer = new MutationObserver(mutations => {
+                mutations.forEach(mutation => {
+                    if (mutation.type === 'childList') {
+                        mutation.addedNodes.forEach(node => {
+                            if (node.nodeName === 'IMG') {
+                                setupImageErrorHandling();
+                            } else if (node.querySelectorAll) {
+                                const images = node.querySelectorAll('img');
+                                if (images.length > 0) {
+                                    setupImageErrorHandling();
+                                }
+                            }
+                        });
+                    }
                 });
             });
             
-            // See More button functionality
-            seeMoreBtn.addEventListener('click', function() {
-                if (!showingAll) {
-                    // Show all images
-                    document.querySelectorAll('.portfolio-item.hidden').forEach(item => {
-                        item.classList.remove('hidden');
-                        item.classList.add('visible');
-                    });
-                    this.textContent = 'Show Less';
-                    showingAll = true;
-                    
-                    // Apply current filter to all items
-                    const activeFilter = document.querySelector('.portfolio-tab.active').getAttribute('data-filter');
-                    filterPortfolio(activeFilter);
-                } else {
-                    // Hide extra images
-                    document.querySelectorAll('.portfolio-item').forEach((item, index) => {
-                        if (index >= 6) {
-                            item.classList.remove('visible');
-                            item.classList.add('hidden');
-                            item.style.display = 'none';
-                        }
-                    });
-                    this.textContent = 'See More';
-                    showingAll = false;
-                    
-                    // Apply current filter to visible items
-                    const activeFilter = document.querySelector('.portfolio-tab.active').getAttribute('data-filter');
-                    filterPortfolio(activeFilter);
-                }
+            // Start observing the document
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true
             });
 
             // Add intersection observer for section animations
