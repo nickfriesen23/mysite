@@ -173,6 +173,22 @@
             margin: 0 auto;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         }
+        
+        .event-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .event-link:hover .event-image {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+        
+        .event-link:hover .event-cta .cta-button {
+            background-color: var(--mustard);
+            color: var(--dark-blue);
+        }
     </style>
 </head>
 <body>
@@ -341,7 +357,12 @@
         </p>
         
         <div class="calendar-container">
-            <iframe src="https://partiful.com/e/Pw4cMm09CRzFmJaF70p0" class="calendar-embed"></iframe>
+            <a href="https://partiful.com/e/Pw4cMm09CRzFmJaF70p0" target="_blank" class="event-link">
+                <img src="https://nick-f.imgix.net/images/friesen-house-party.jpg" alt="Friesen House Party - May 3rd" class="event-image" style="max-width: 100%; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <div class="event-cta" style="text-align: center; margin-top: 15px;">
+                    <span class="cta-button">RSVP on Partiful</span>
+                </div>
+            </a>
         </div>
     </section>
 
